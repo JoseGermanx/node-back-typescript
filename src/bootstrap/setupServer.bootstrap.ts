@@ -1,4 +1,3 @@
-// basic imports
 import { Application, json, urlencoded, Request, Response, NextFunction } from 'express';
 import http from 'http';
 import cors from 'cors';
@@ -8,10 +7,7 @@ import compression from 'compression';
 import cookieSession from 'cookie-session';
 import { config } from '@configs/configEnvs';
 import 'express-async-errors';
-//--------
 import HTTP_STATUS from 'http-status-codes';
-// import { Server } from 'socket.io';
-// import { createAdapter } from '@socket.io/redis-adapter';
 import { IErrorResponse } from '@helpers/errors/errorResponse.interface';
 import { CustomError } from '@helpers/errors/customError';
 import applicationRoutes from '@interfaces/http/routes';
@@ -100,23 +96,4 @@ export class SalesServer {
       log.info(`Server running at ${PORT}.`);
     });
   }
-
-  // private async createSocketIO(httpServer: http.Server): Promise<Server> {
-  //   const io: Server = new Server(httpServer, {
-  //     cors: {
-  //       origin: config.CLIENT_URL,
-  //       methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
-  //     }
-  //   });
-  //   const pubClient = createClient({ url: config.REDIS_HOST });
-  //   const subClient = pubClient.duplicate();
-  //   await Promise.all([pubClient.connect(), subClient.connect()]);
-  //   io.adapter(createAdapter(pubClient, subClient));
-  //   return io;
-  // }
-
-  // private socketIOConnections(io: Server): void {
-  //   console.log(io);
-  //   log.info('SocketIO Connections Ok.');
-  // }
 }
