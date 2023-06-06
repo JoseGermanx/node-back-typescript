@@ -26,6 +26,7 @@
       "@bootstrap/*": ["src/bootstrap/*"],
       "@configs/*": ["src/configs/*"],
       "@auth/*": ["src/features/auth/*"],
+      "@sales/*": ["src/features/sales/*"],
       "@user/*": ["src/features/user/*"],
       "@interfaces/*": ["src/interfaces/*"],
       "@decorators/*": ["src/shared/global/decorators/*"],

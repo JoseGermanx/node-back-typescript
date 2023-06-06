@@ -1,0 +1,33 @@
+@baseUrl=http://localhost:8080
+@urlPath=/api/v1
+
+###
+POST {{baseUrl}}{{urlPath}}/signup
+content-type: application/json
+accept: application/json
+{
+    "name": "alberto",
+    "lastName": "martinez",
+    "email": "lavamosareventar@contodo.com",
+    "type": "vendedor"
+}
+
+GET {{baseUrl}}{{{urlPath}}}/getuser/647e207e0c2201eb503e12ee
+content-type: application/json
+accept: application/json
+
+PUT {{baseUrl}}{{{urlPath}}}/updateuser/647e207e0c2201eb503e12ee
+content-type: application/json
+accept: application/json
+{
+    "name": "Daniel"
+}
+
+DELETE {{baseUrl}}{{urlPath}}/647e207e0c2201eb503e12ee
+content-type: application/json
+accept: application/json
+
+
+GET {{baseUrl}}{{urlPath}}/getusers
+content-type: application/json
+accept: application/json

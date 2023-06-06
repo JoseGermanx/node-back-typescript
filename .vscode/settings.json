@@ -1,0 +1,13 @@
+{
+    "rest-client.certificates": {
+
+    },
+    "rest-client.defaultHeaders": {
+
+        "User-Agent": "vscode-restclient"
+    },
+    "rest-client.excludeHostsForProxy": [
+        
+    ],
+    "atlascode.enableHttpsTunnel": false
+}

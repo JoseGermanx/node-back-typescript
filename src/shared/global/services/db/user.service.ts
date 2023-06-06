@@ -2,6 +2,8 @@ import { IUserDocument } from '@user/interfaces/userDocument.interface';
 import { UserModel } from '@user/models/userSchema';
 import { Generators } from '@helpers/generators/generators';
 import { IAllUsers } from '@user/interfaces/allUsers.interfaces';
+import { IUserData } from '@user/interfaces/userData.interface';
+import { IUserUpdate } from '@user/interfaces/userDataUpdate.interface';
 
 // Solid Principle: Open/Close, Single Responsability
 class UserService {
@@ -33,6 +35,16 @@ class UserService {
     const totalUsers: number = users.length;
     return { users, totalUsers };
   }
+
+  public async updateUser(id: string, data: IUserUpdate): 
+   Promise<void> {
+    (await UserModel.findOneAndUpdate({ _id: id }, data));
+  }
+
+  public async deleteUser(id: string): Promise<void> {
+    (await UserModel.deleteOne({ _id: id}));
+  }
+
 
 }
 

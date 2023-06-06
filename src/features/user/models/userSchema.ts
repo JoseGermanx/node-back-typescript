@@ -6,10 +6,12 @@ import { model, Model, Schema } from 'mongoose';
 const userSchema: Schema = new Schema(
   {
     name: { type: 'String' },
-    lastName: { type: 'String'},
+    lastName: { type: 'String' },
     uId: { type: 'String' },
     email: { type: 'String' },
-    createdAt: { type: Date, default: Date.now() }
+    type: { type: 'String' },
+    createdAt: { type: Date, default: Date.now() },
+    lastUpdateAt: { type: Date, default: Date.now()}
   }
   // {
   //   toJSON: {

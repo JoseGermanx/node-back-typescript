@@ -1,4 +1,3 @@
-// import bcrypt from 'bcryptjs';
 import { config } from '@configs/configEnvs';
 
 export class Generators {
@@ -32,8 +31,4 @@ export class Generators {
     }
     return JSON.parse(prop);
   }
-
-//   static hash(password: string): Promise<string> {
-//     return bcrypt.hash(password, Number(config.SALT_ROUND));
-//   }
 }
