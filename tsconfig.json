@@ -25,14 +25,12 @@
     "paths": {
       "@bootstrap/*": ["src/bootstrap/*"],
       "@configs/*": ["src/configs/*"],
-      "@auth/*": ["src/features/auth/*"],
       "@sales/*": ["src/features/sales/*"],
       "@user/*": ["src/features/user/*"],
       "@interfaces/*": ["src/interfaces/*"],
       "@decorators/*": ["src/shared/global/decorators/*"],
       "@helpers/*": ["src/shared/global/helpers/*"],
       "@services/*": ["src/shared/global/services/*"],
-      "@workers/*": ["src/shared/global/workers/*"],
       "@root/*": ["src/*"]
     }
   },
