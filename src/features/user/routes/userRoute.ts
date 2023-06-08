@@ -1,5 +1,6 @@
 import express, { Router } from 'express';
 import { UserControllers } from '@user/controllers/userController';
+import { authMiddleware } from '@helpers/middlewares/protectRouteMiddleware';
 
 class UserRoutes {
   private router: Router;
@@ -12,7 +13,7 @@ class UserRoutes {
     // Design Pattern Mediator: https://refactoring.guru/es/design-patterns/mediator
     // Design Pattern Prototype: https://refactoring.guru/es/design-patterns/prototype
     this.router.post('/signup', UserControllers.prototype.create);
-    this.router.get('/getusers', UserControllers.prototype.getAllUsers);
+    this.router.get('/getusers', authMiddleware.checkAuthentication, UserControllers.prototype.getAllUsers);
     this.router.get('/getuser/:id', UserControllers.prototype.getUserById);
     this.router.put('/updateuser/:id', UserControllers.prototype.updateUser);
     this.router.delete('/deleteuser/:id', UserControllers.prototype.deleteUser);
