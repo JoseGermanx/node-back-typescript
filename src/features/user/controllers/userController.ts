@@ -3,7 +3,6 @@ import { ObjectId } from 'mongodb';
 import { joiValidation } from '@decorators/joi-validation.decorators';
 import { userSchema } from '@user/schema/userCreation';
 import { userService } from '@services/db/user.service';
-// import { BadRequestError } from '@helpers/errors/badRequestError';
 import { Generators } from '@helpers/generators/generators';
 import { IUserDocument } from '@user/interfaces/userDocument.interface';
 import HTTP_STATUS from 'http-status-codes';
