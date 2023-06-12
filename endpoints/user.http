@@ -5,10 +5,11 @@
 POST {{baseUrl}}{{urlPath}}/signup
 content-type: application/json
 accept: application/json
+
 {
     "name": "alberto",
     "lastName": "martinez",
-    "email": "lavamosareventar@contodo.com",
+    "email": "lavamosareventardenuevo@contodo.com",
     "type": "vendedor"
 }
 
