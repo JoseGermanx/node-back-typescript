@@ -5,7 +5,7 @@
     "esModuleInterop": true /* esto es para asegurarnos de darle soporte a nuestro JS de acuerdo al TS compilado */,
     "resolveJsonModule": true /* nos permite intepretar importaciones de archivos .json */,
     "moduleResolution": "node" /* esto nos permite verificar la inclusión de TS de forma explícita en node */,
-    "target": "ES2015" /* aquí defines tu estandarización del ECMMA */,
+    "target": "ES6" /* aquí defines tu estandarización del ECMMA */,
     "noImplicitAny": true /* esto me permite que no me de recomendaciones de tipos any */,
     "sourceMap": true /* esto me permite habilitar un archivo fuente de js donde vaya a caer todo el código final */,
     "experimentalDecorators": true /* esto me permite darle soporte a decoradores */,
