@@ -17,6 +17,7 @@ class Config {
         this.JWT_TOKEN = process.env.JWT_TOKEN || '';
         this.SECRET_KEY_TWO = process.env.SECRET_KEY_TWO || '';
         this.SECRET_KEY_ONE = process.env.SECRET_KEY_ONE || '';
+        this.BASE_PATH = process.env.BASE_PATH || '';
     }
     validateConfig() {
         for (const [key, value] of Object.entries(this)) {

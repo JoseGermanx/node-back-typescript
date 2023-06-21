@@ -13,7 +13,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SalesServer = void 0;
-// basic imports
 const express_1 = require("express");
 const http_1 = __importDefault(require("http"));
 const cors_1 = __importDefault(require("cors"));
@@ -23,8 +22,9 @@ const compression_1 = __importDefault(require("compression"));
 const cookie_session_1 = __importDefault(require("cookie-session"));
 const configEnvs_1 = require("../configs/configEnvs");
 require("express-async-errors");
-//--------
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
+const customError_1 = require("../shared/global/helpers/errors/customError");
+const routes_1 = __importDefault(require("../interfaces/http/routes"));
 const configLogs_1 = require("../configs/configLogs");
 const log = configLogs_1.logger.createLogger('server');
 class SalesServer {
@@ -61,28 +61,26 @@ class SalesServer {
         app.use((0, express_1.urlencoded)({ extended: true, limit: '50mb' }));
     }
     routesMiddleware(app) {
-        // applicationRoutes(app);
+        (0, routes_1.default)(app);
     }
     globalErrorHandler(app) {
         app.all('*', (req, res) => {
             log.error(`This url ${req.originalUrl} it is not found`);
             res.status(http_status_codes_1.default.NOT_FOUND).json({ message: `This url ${req.originalUrl} it is not found` });
         });
-        // app.use((error: IErrorResponse, _req: Request, res: Response, next: NextFunction) => {
-        //   log.error(error);
-        //   if (error instanceof CustomError) {
-        //     return res.status(error.statusCode).json(error.serializeErrors());
-        //   }
-        //   next();
-        // });
+        app.use((error, _req, res, next) => {
+            log.error(error);
+            if (error instanceof customError_1.CustomError) {
+                return res.status(error.statusCode).json(error.serializeErrors());
+            }
+            next();
+        });
     }
     startServer(app) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const httpServer = new http_1.default.Server(app);
-                // const socketIO: Server = await this.createSocketIO(httpServer);
                 this.startHttpServer(httpServer);
-                // this.socketIOConnections(socketIO);
             }
             catch (error) {
                 log.error(error);
@@ -98,7 +96,4 @@ class SalesServer {
     }
 }
 exports.SalesServer = SalesServer;
-// function applicationRoutes(app: Application) {
-//   throw new Error('Function not implemented.');
-// }
 //# sourceMappingURL=setupServer.bootstrap.js.map

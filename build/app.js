@@ -17,7 +17,6 @@ class Application {
     }
     loadConfig() {
         configEnvs_1.config.validateConfig();
-        // config.cloudinaryConfig();
     }
 }
 const application = new Application();
