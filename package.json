@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Back end for RSA sales administration app",
   "main": "app.ts",
+  "type": "module",
   "scripts": {
     "dev": "nodemon -r tsconfig-paths/register src/app.ts | ./node_modules/.bin/bunyan",
     "lint:check": "eslint . --ext .ts",
